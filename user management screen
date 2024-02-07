@@ -1,0 +1,53 @@
+# User Management Screen Specification
+
+## Initial State
+- On loading, the user list is populated with all active users.
+- The 'New User' form on the right is clear and ready for input.
+- The 'Hide Disabled User' toggle is off by default.
+
+## Components
+
+### User List
+- **ID**: Unique identifier for each user.
+- **User Name**: The username for the account.
+- **Email**: Email address associated with the user.
+- **Enabled**: Boolean indicator. If `true`, the user account is active.
+
+### Actions
+- **New User Button**: When clicked, presents a blank form to create a new user.
+- **Hide Disabled User Toggle**: When toggled on, filters out disabled user accounts from the list.
+
+### New User Form
+- **Username**: Field to input the new user's username.
+- **Display Name**: Field to input the user's full name.
+- **Phone**: Field to input the user's phone number.
+- **Email**: Field to input the user's email address.
+- **User Roles**: Dropdown to select the user's role(s).
+- **Save User Button**: Submits the new user data to the server.
+
+## Behaviors
+
+### List Interaction
+- **Sorting**: Clicking on any column header will sort the list by that column.
+- **Editing**: Double-clicking on a row will allow in-line editing.
+
+### Form Interaction
+- **Validation**: All fields are required and must pass validation before submission.
+- **Submission**: On successful submission, the user list is updated and the form is cleared.
+
+## Error Handling
+- **Load Failure**: If the user list fails to load, display an error message.
+- **Save Failure**: If saving a new user fails, display an error message detailing the problem.
+
+## Permissions
+- Only users with admin rights can add or edit user accounts.
+
+## API Endpoints
+- GET `/api/users` to retrieve users.
+- POST `/api/users` to create a new user.
+- PUT `/api/users/{id}` to update an existing user.
+
+## Accessibility
+- Ensure that all form controls and buttons are accessible via keyboard navigation.
+- Provide appropriate ARIA labels for screen readers.
+
